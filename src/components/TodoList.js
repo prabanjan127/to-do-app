@@ -8,7 +8,7 @@ const TodoList = () => {
     <ul>
       {todos.map((todo) => (
         <li key={todo.id}>
-          {todo.task} : {getTaskDate(todo.id)}
+        Task: {todo.task} <br></br>Task Date: {getTaskDate(todo.id)}<br></br>
           <button onClick={() => removeTodo(todo.id)}>Remove</button>
         </li>
       ))}

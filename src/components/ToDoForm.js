@@ -3,13 +3,15 @@ import { TodoContext } from './ToDoApp';
 
 const TodoForm = () => {
   const { addTodo } = useContext(TodoContext);
-  const [task, setTask] = useState('');
 
+  const [task, setTask] = useState('');
+  const [date,setDate]=useState('');
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (task.trim() !== '') {
-      addTodo(task);
+    if (task.trim() !== '' && date.trim() !=='') {
+      addTodo(task,date);
       setTask('');
+      setDate('');
     }
   };
 
@@ -21,7 +23,15 @@ const TodoForm = () => {
         value={task}
         onChange={(e) => setTask(e.target.value)}
       />
-      <button type="submit">Add Task</button>
+      <input
+        type="date"
+        placeholder="Enter a new task"
+        value={date}
+        onChange={(e) => setDate(e.target.value)}
+        required
+      />
+       <button type="submit">Add Task</button>
+     
     </form>
   );
 };
